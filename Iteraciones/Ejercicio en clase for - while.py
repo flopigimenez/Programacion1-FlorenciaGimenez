@@ -2,7 +2,7 @@
 abecedario = ['a','b','c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 mensajes = []
-for i in range(2):
+for i in range(5):
     mensajes.append(input(f'Ingrese el mensaje num {i}: '))
 
 
