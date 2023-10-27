@@ -1,3 +1,5 @@
+import sys
+sys.path.append('C:/Users/BIENVENIDO/Desktop/Programación/Programación 1/Repositorio Programacion1 - Florencia Gimenez/Programacion1-FlorenciaGimenez/Funciones')
 import Funciones
 
 """Solicitar números al usuario hasta que ingrese el cero. Por cada uno, mostrar la suma de sus dígitos."""
