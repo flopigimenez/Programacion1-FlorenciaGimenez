@@ -35,6 +35,7 @@ for i in range(0, len(letters_list)):
 
 print("Lista: ", end = "")
 Funciones.show_list(letters_list)"""
+
  
 """4.	Escribe un programa que tome una lista de cadenas como entrada y las ordene en orden ascendente según su 
 longitud. Puedes utilizar el método de ordenamiento de inserción."""
