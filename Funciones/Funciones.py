@@ -109,13 +109,13 @@ def mayor_menor(number_list):
                 el_mayor = i
         if i < el_menor:
                 el_menor = number_list[i]
-    return "El mayor valor es: " + str(el_mayor) + " el menor valor es: " + str(el_menor)
+    return "El mayor valor es: " + str(el_mayor) + ", el menor valor es: " + str(el_menor)
 
 #Ej 8
 def circunferencia(radius):
     area = math.pi*(radius ** 2)
     perimeter = 2 * math.pi * radius
-    return "El perimeter del radio ingresado es: " + str(perimeter) + " y el area es: " + str(area)
+    return "El perimetro del radio ingresado es: " + str(perimeter) + " y el area es: " + str(area)
 
 #Ej 9
 def login(user, password, attempt):
@@ -125,6 +125,38 @@ def login(user, password, attempt):
         attempt += 1
         return False
 
+#Ej 10
+def apply_discount(shopping_cart, discounts):
+    final_prize= 0
+    
+    for product, prize in shopping_cart.items():
+        if product in discounts:
+            discount = discounts[product]
+            discount_prize = prize * (1 - discount / 100)
+            final_prize += discount_prize
+        else:
+            final_prize += prize
+    return final_prize
+ 
+#Ej 11
+def apply_function_to_list(func, input_list):
+    result = []
+    for element in input_list:
+        result.append(func(element))
+    return result
+
+def square(x):
+    return x ** 2
+ 
+#Ej 12
+def word_length_dict(phrase):
+    words = phrase.split()
+    result = {}
+    
+    for word in words:
+        result[word] = len(word)
+    return result 
+ 
 #Ej 13
 def vector_magnitude(a,b,c):
     magnitude = math.sqrt(a**2 + b**2 + c**2)

@@ -92,12 +92,12 @@ Crea una función que reciba los dos números, y devuelve si el primero es múlt
 num1 = int(input('Ingrese un número: '))
 num2 = int(input('Ingrese otro número: '))
 
-is_multiple(num1, num2)"""
+Funciones.is_multiple(num1, num2)"""
 
 """5. Crear una función que calcule la temperatura media de un día a partir de la temperatura máxima y mínima.
 Crear un programa principal, que utilizando la función anterior, vaya pidiendo la temperatura máxima y mínima de
 cada día y vaya mostrando la media. El programa pedirá el número de días que se van a introducir."""
-
+#Ejercicio 5
 """days = int(input('Ingrese la cantidad de días que ingresará: '))
 
 # Ya teniendo los días, recorro esa cantidad en un for y retorno la función en un variable promedio para posteriormente
@@ -107,7 +107,7 @@ for i in range(1, days+1):
     print(f'Día {i}'.center(50, '-'))
     mx_temp = int(input('Ingrese la temperatura máxima: '))
     mn_temp = int(input('Ingrese la temperatura mínima: '))
-    average = avg_temperature(mx_temp, mn_temp)
+    average = Funciones.avg_temperature(mx_temp, mn_temp)
     print(f'La temperatura promedio de este día fue: {average}')"""
 
 """ 6.	Crea una función que reciba como parámetro un texto y devuelve una cadena con un espacio adicional tras cada
@@ -117,9 +117,9 @@ letra. Por ejemplo, “Hola, tú” devolverá “H o l a , t ú “. Crea un pr
 #En una variable nueva palabra
 
 word = input('Ingrese una palabra: ')
-new_word = return_wh_spaces(word)
+new_word = Funciones.return_wh_spaces(word)
 
-print(new_word) """
+print(new_word)"""
 
 """7. Crea una función que recibe una lista con valores numéricos y devuelve el valor máximo y el mínimo.
  Crea un programa que pida números por teclado y muestre el máximo y el mínimo, utilizando la función anterior."""
@@ -129,13 +129,13 @@ for i in range(5):
     numero = input("Ingrese los numeros de la lista: ")
     numeros.append(numero)
 
-print(mayor_menor(numeros))"""
+print(Funciones.mayor_menor(numeros))"""
 
 """8. Diseñar una función que calcule el área y el perímetro de una circunferencia. Utiliza dicha función en un programa 
 principal que lea el radio de una circunferencia y muestre su área y perímetro."""
 #Ejercicio 8
 """radio_elegido = int(input("Ingrese el radio de la circunferencia: "))
-print(circunferencia(radio_elegido))"""
+print(Funciones.circunferencia(radio_elegido))"""
  
 """9. Crear una subrutina llamada “login”, que recibe un nombre de usuario y una contraseña y te devuelve 
 Verdadero si el nombre de usuario es “usuario1” y la contraseña es “asdasd”. Además recibe el número de 
@@ -160,13 +160,13 @@ productos del carrito y devolver el precio final de la compra"""
 discounts = {}
 
 while True:
-    product = input("Ingrese el producto o fin para dejar de cargar productos: \n ")
+    product = input("Ingrese el producto o fin para dejar de cargar productos: ")
     
     if product.lower() == "fin":
         break
         
     while True:
-        prize = float(input("Ingrese el precio del producto: \n"))
+        prize = float(input("Ingrese el precio del producto: "))
         
         if prize >0: 
             shopping_cart[product] = prize
@@ -175,20 +175,20 @@ while True:
             print("el precio no puede ser 0 o negativo")
 
 while True:
-    product = input("Ingrese el producto con descuento o fin para dejar de cargar descuentos \n")
+    product = input("Ingrese el producto con descuento o fin para dejar de cargar descuentos: ")
 
     if product.lower() == "fin":
         break
 
     while True:
-        num = float(input("Ingrese el porcentaje de descuento para el producto: \n"))
+        num = float(input("Ingrese el porcentaje de descuento para el producto: "))
         if num >0: 
             discounts[product] = num
             break
         else:
             print("el descuento no puede ser 0 o negativo")
 
-total_prize = apply_discount(shopping_cart, discounts)
+total_prize = Funciones.apply_discount(shopping_cart, discounts)
 print(f"Precio total con descuento: {total_prize}")"""
 
 """11)Escribir una función que reciba otra función y una lista, y devuelva otra lista con el resultado de
@@ -196,16 +196,16 @@ aplicar la función dada a cada uno de los elementos de la lista."""
 #Ejercicio 11
 """original_list = [1, 2, 3, 4, 5]
 
-result = apply_function_to_list(square, original_list)
+result = Funciones.apply_function_to_list(Funciones.square, original_list)
 print(f"lista original {original_list}")
-print(f"lista con los resultados de los numeros al cuadrado {result}")"""  
+print(f"lista con los resultados de los numeros al cuadrado {result}")"""
 
 """12) Escribir una función que reciba una frase y devuelva un diccionario con las palabras que contiene y
 su longitud."""
 #Ejercicio 12
 """phrase="Pepito saludo a Juanito"
 
-result = word_length_dict(phrase)
+result = Funciones.word_length_dict(phrase)
 
 print(result)"""
 
