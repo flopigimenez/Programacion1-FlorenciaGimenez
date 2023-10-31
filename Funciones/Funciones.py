@@ -1,4 +1,5 @@
 import math
+import random
 #Ejercicio Funciones
 def most(a,b):
     if a > b:
@@ -47,20 +48,18 @@ def guess_word(random_word, temporal_word, new_word, tries):
         print(f"Perdiste, la palabra es {random_word}")            
   
     
-#Numero primo TP5-Ej9    
+#TP5   
 def login(user, password, attempt):
     if user == "usuario1" and password == "asdasd":
         return True
     else:
         attempt += 1
         return False
-    
-#Numero primo TP5-Ej13    
+      
 def vector_magnitude(a,b,c):
     magnitude = math.sqrt(a**2 + b**2 + c**2)
     print(f"La magnitud de un vector que tiene componentes {a,b,c} es {abs(magnitude)}")
- 
-#Numero primo TP5-Ej14  
+  
 def prime_number(number):
     prime_numb = True
     count = 0
@@ -73,7 +72,6 @@ def prime_number(number):
     
     return prime_numb
 
-#Factorial TP5-Ej15
 def factorial(number):
     factorial = 1    
     for n in range(1, number+1):
@@ -131,7 +129,7 @@ def diagonal_line():
     print("")   
     
     
-#TP6
+#TP6 y TP7
 def show_list(list_numbers):  
     for i in list_numbers:
         print(i, end = " ") 
@@ -247,5 +245,31 @@ def power_of_b(n,b):
     elif n % b != 0:
         return False
     return power_of_b(n / b,b)
+
+def choose_route(minutes, total_minutes):
+    route = random.randint(1,3)
+    if route == 1:
+        minutes = 3
+        total_minutes += minutes
+        print("Elijió el camino de 3 minutos y volvió a la jaula")
+        
+    elif route == 2:
+        minutes = 5
+        total_minutes += minutes
+        print("Elijió el camino de 5 minutos y volvió a la jaula")
+        
+    elif route == 3:
+        minutes = 7
+        total_minutes += minutes
+        print("Elijió el camino de 7 minutos y logró salir de la jaula")
+        print(f"Tardo en salir de la jaula {total_minutes} minutos")
+        return total_minutes
     
-                              
+    return choose_route(minutes, total_minutes) 
+
+def f(n):
+    s = str(n)
+    if len(s) <= 1:
+        return s
+    return s[-1] + f(int(s[:-1]))
+                          
