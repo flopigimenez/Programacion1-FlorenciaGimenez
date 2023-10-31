@@ -13,21 +13,27 @@ print("Inicia el juego")
 bingo = False
 
 while bingo == False: 
+    print("")
     for count in range(5):
         ball_number = random.randint(1,75)
         if  ball_number in numbers:
             print(f"El numero {ball_number}, si esta en el carton")
+            
             index_number = numbers.index(ball_number)
             numbers[index_number] = 'x'
-            cardboard = [x if x != ball_number else 'x' for x in cardboard]
             
-            #Funciones.vertical_line()
-            #Funciones.diagonal_line()
+            for i in range(5):
+                for j in range(5):
+                    if cardboard[i][j] == ball_number:
+                        cardboard[i][j] = 'x'
+            
         else:
-            print(f"El numero {ball_number}, no esta en el carton") 
-        
-        #ball_number not in numbers      
-    bingo = Funciones.horizontal_line(cardboard)
+            print(f"El numero {ball_number}, no esta en el carton")  
+              
+    h_bingo = Funciones.horizontal_line(cardboard)
+    v_bingo = Funciones.vertical_line(cardboard)
+    d_bingo = Funciones.diagonal_line(cardboard)
     
-    if bingo:
-        print("Bingo")              
+    if h_bingo == True or v_bingo == True or d_bingo == True:
+       print("Bingo")
+       bingo = True    

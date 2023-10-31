@@ -48,18 +48,89 @@ def guess_word(random_word, temporal_word, new_word, tries):
         print(f"Perdiste, la palabra es {random_word}")            
   
     
-#TP5   
+#TP5 
+#Ej 1
+def dni_verification(document):
+    if (len(document) == 7) or (len(document) == 8):
+        valid = True
+    else:
+        valid = False
+    return valid
+
+#Ej 2
+def last_word_lenght(w_list):
+    last_word = w_list[-1]
+    l_w_length = len(last_word)
+
+    return l_w_length
+
+#Ej 3
+def name_verification(m_name):
+    valid_name = True
+    if (len(m_name) < 2) or (len(m_name) > 3):
+        valid_name = False
+    
+    return valid_name
+
+def member_id_generator(m_name, dni):
+    first_name = str(m_name[0]).replace(',', '').strip().capitalize()
+    last_name_length = str(len(m_name[-1]))
+    first_numbers_dni = str(dni[0:3])
+    member_id = str(first_name + last_name_length + first_numbers_dni)
+    return member_id
+
+#Ej 4
+def is_multiple(a, b):
+    if a % b == 0:
+        return print('El primer número ingresado es múltiplo del segundo.')
+    else:
+        return print('El primer número no es múltiplo del segundo')
+    
+#Ej 5    
+def avg_temperature(max_temp, min_temp):
+    return (max_temp + min_temp) / 2
+
+#Ej 6
+def return_wh_spaces(a_string):
+    new_string = ""
+    for character in a_string:
+        if character.isalpha():
+            new_string += character + " "
+        else:
+            new_string += character
+    return new_string
+
+#Ej 7
+def mayor_menor(number_list):
+    el_mayor = number_list[0]
+    el_menor = number_list[0]
+    for i in number_list:
+        if i > el_mayor:
+                el_mayor = i
+        if i < el_menor:
+                el_menor = number_list[i]
+    return "El mayor valor es: " + str(el_mayor) + " el menor valor es: " + str(el_menor)
+
+#Ej 8
+def circunferencia(radius):
+    area = math.pi*(radius ** 2)
+    perimeter = 2 * math.pi * radius
+    return "El perimeter del radio ingresado es: " + str(perimeter) + " y el area es: " + str(area)
+
+#Ej 9
 def login(user, password, attempt):
     if user == "usuario1" and password == "asdasd":
         return True
     else:
         attempt += 1
         return False
-      
+
+#Ej 13
 def vector_magnitude(a,b,c):
     magnitude = math.sqrt(a**2 + b**2 + c**2)
     print(f"La magnitud de un vector que tiene componentes {a,b,c} es {abs(magnitude)}")
-  
+
+#Ej 14
 def prime_number(number):
     prime_numb = True
     count = 0
@@ -72,6 +143,7 @@ def prime_number(number):
     
     return prime_numb
 
+#Ej 15
 def factorial(number):
     factorial = 1    
     for n in range(1, number+1):
@@ -108,25 +180,48 @@ def show_cardboard(cardboard):
         print(c)   
         
 def horizontal_line(cardboard):
-    for c in cardboard:
-        if c.count("x") == 5:
+    for row in cardboard:
+        if all(element == 'x' for element in row):
+            print("Línea horizontal!")
             return True
     return False
 
+def vertical_line(cardboard):
+    for col in range(5):
+        if all(row[col] == 'x' for row in cardboard):
+            print("Línea vertical!")
+            return True
+    return False 
 
-"""def horizontal_line(cardboard, bingo):
-    for c in cardboard:
-        if c.count("x") == 5:
-            bingo = True
-        else:
-            bingo = False
-    return bingo  """      
-
-def vertical_line():
-    print("")    
+def diagonal_line(cardboard):
+    left_to_right = all(cardboard[i][i] == 'x' for i in range(5))
+    right_to_left = all(cardboard[i][4 - i] == 'x' for i in range(5))
     
-def diagonal_line():
-    print("")   
+    if left_to_right or right_to_left:
+        print("Línea diagonal!")
+    
+    return left_to_right or right_to_left
+        
+"""def horizontal_line(cardboard):
+    for row in cardboard:
+        if all(element == 'x' for element in row):
+            return True
+    return False
+
+def vertical_line(cardboard):
+    for col in range(5):
+        if all(row[col] == 'x' for row in cardboard):
+            return True
+    return False 
+    
+def diagonal_line(cardboard):
+    # Verificar la diagonal de izquierda a derecha
+    left_to_right = all(cardboard[i][i] == 'x' for i in range(5))
+
+    # Verificar la diagonal de derecha a izquierda
+    right_to_left = all(cardboard[i][4 - i] == 'x' for i in range(5))
+
+    return left_to_right or right_to_left  """ 
     
     
 #TP6 y TP7
@@ -146,6 +241,14 @@ def bubble_sort(numbers_list):
                 numbers_list[i-1] = numbers_list[i]
                 numbers_list[i] = aux
                 exchange = True
+
+def bubble_sort_3(dictionary, key):
+    n = len(dictionary)
+    for i in range(n - 1):
+        for j in range(0, n - i - 1):
+            if dictionary[j][key] > dictionary[j + 1][key]:
+                dictionary[j], dictionary[j + 1] = dictionary[j + 1], dictionary[j]
+    return dictionary
                 
 def selection_sort(numbers_list):
     for i in range(0, len(numbers_list)): 
@@ -165,7 +268,27 @@ def insert_sort(numbers_list):
             numbers_list[j+1] = numbers_list[j]
             j -= 1
         numbers_list[j+1] = value
-        
+
+def selection_sort_dic(arr, key):
+    n = len(arr)
+
+    # Crear una copia de la lista de diccionarios para no modificar la original
+    sorted_arr = arr.copy()
+
+    # Iterar a través de todos los elementos de la lista de diccionarios
+    for i in range(n):
+        # Encontrar el índice del elemento mínimo en la lista sin ordenar
+        min_index = i
+        for j in range(i + 1, n):
+            if sorted_arr[j][key] < sorted_arr[min_index][key]:
+                min_index = j
+
+        # Intercambiar el elemento mínimo encontrado con el primer elemento sin ordenar
+        sorted_arr[i], sorted_arr[min_index] = sorted_arr[min_index], sorted_arr[i]
+
+    # Devolver la lista ordenada
+    return sorted_arr
+
 def merge_sort(numbers_list):
     if len(numbers_list) > 1:
         middle = len(numbers_list) // 2
@@ -230,7 +353,25 @@ def binary_search(numbers_list):
         print(f"El elemento {find_number} se encuentra en la posición {result}.")
     else:
         print(f"El elemento {find_number} no se encuentra en la lista.")
-    
+
+def count_sort(array):
+    # Encuentra el valor máximo en la lista
+    maxim = max(array)
+
+    # Crea un arreglo auxiliar para contar las apariciones de cada número
+    count = [0] * (maxim + 1)
+
+    # Llena el arreglo de conteo con las apariciones de cada número
+    for num in array:
+        count[num] += 1
+
+    # Reconstruye la lista ordenada a partir del arreglo de conteo
+    array_ord = []
+    for i in range(len(count)):
+        for j in range(count[i]):
+            array_ord.append(i)
+
+    return array_ord
     
 #TP8-Recirsion
 def digits(number):

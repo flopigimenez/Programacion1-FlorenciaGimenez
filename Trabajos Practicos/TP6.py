@@ -55,7 +55,7 @@ Funciones.show_list(new_list)"""
 
 """5. Generar e imprimir una nueva lista que contenga como elementos a tuplas, cada una compuesta por un número de la lista original y la cantidad de veces que aparece en ella.
  Por ejemplo, si la lista original es [5,16,2,5,57,5,2], la nueva lista contendrá: [(5,3),(16,1),(2,2),(57,1)]"""
-
+#Ejercicio 5
 """list_for_tuple = []
 for number in new_list:
    numero = new_list.count(number)
@@ -70,12 +70,11 @@ for number in set(new_list):
 print(unique_tuples)"""
 
 """6. Solicitar al usuario que ingrese los nombres de pila de los alumnos de nivel primario de una escuela, finalizando al ingresar ‘x’. A continuación, 
-solicitar que ingrese los nombres de los alumnos de nivel secundario, finalizando al ingresar ‘x’.
+solicitar que ingrese los nombres de los alumnos de nivel secundario, finalizando al ingresar 'x'.
 a. Informar los nombres de todos los alumnos de nivel primario y de los de nivel secundario, sin repeticiones.
 b. Informar qué nombres se repiten entre los alumnos de nivel primario y secundario.
-c. Informar qué nombres de nivel primario no se repiten en los de nivel secundario.
-"""
-
+c. Informar qué nombres de nivel primario no se repiten en los de nivel secundario."""
+#Ejercicio 6
 """students_primary = []
 students_secondary = []
 while(True):
@@ -102,6 +101,4 @@ unique_primary = list(set(students_primary))
 unique_secondary = list(set(students_secondary))
 names_unique_to_primary = [name for name in unique_primary if name not in unique_secondary]
 print("Nombres de nivel primario que no se repiten en los de nivel secundario:")
-print(names_unique_to_primary)
-
-"""
+print(names_unique_to_primary)"""
