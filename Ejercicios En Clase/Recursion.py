@@ -20,8 +20,8 @@ entero
 Escribir una funcion que en caso de que el numero sea mayor a 1 cifra lo invierta. Por ejemplo si ingresa 23, 
 el programa devolverá 32."""
 #Ejercicio 2
-n = int(input("Ingrese un numero: "))
+"""n = int(input("Ingrese un numero: "))
 
 num_one_cifrs = Funciones.f(n)
 
-print(num_one_cifrs)
+print(num_one_cifrs)"""
