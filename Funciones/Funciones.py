@@ -181,49 +181,43 @@ def show_cardboard(cardboard):
         
 def horizontal_line(cardboard):
     for row in cardboard:
-        if all(element == 'x' for element in row):
-            print("Línea horizontal!")
-            return True
-    return False
-
-def vertical_line(cardboard):
-    for col in range(5):
-        if all(row[col] == 'x' for row in cardboard):
-            print("Línea vertical!")
+        line = True 
+        for element in row:
+            if element != 'x':
+                line = False  
+                break 
+        if line:
+            print("¡Línea horizontal!")
             return True
     return False 
 
+def vertical_line(cardboard):
+    for col in range(5):  
+        line = True  
+        for row in cardboard:
+            if row[col] != 'x':
+                line = False  
+                break  
+        if line:
+            print("¡Línea vertical!")
+            return True
+    return False
+
 def diagonal_line(cardboard):
-    left_to_right = all(cardboard[i][i] == 'x' for i in range(5))
-    right_to_left = all(cardboard[i][4 - i] == 'x' for i in range(5))
-    
+    left_to_right = True
+    right_to_left = True
+
+    for i in range(5):
+        if cardboard[i][i] != 'x':
+            left_to_right = False
+        if cardboard[i][4 - i] != 'x':
+            right_to_left = False
+
     if left_to_right or right_to_left:
-        print("Línea diagonal!")
-    
+        print("¡Línea diagonal!")
+
     return left_to_right or right_to_left
-        
-"""def horizontal_line(cardboard):
-    for row in cardboard:
-        if all(element == 'x' for element in row):
-            return True
-    return False
 
-def vertical_line(cardboard):
-    for col in range(5):
-        if all(row[col] == 'x' for row in cardboard):
-            return True
-    return False 
-    
-def diagonal_line(cardboard):
-    # Verificar la diagonal de izquierda a derecha
-    left_to_right = all(cardboard[i][i] == 'x' for i in range(5))
-
-    # Verificar la diagonal de derecha a izquierda
-    right_to_left = all(cardboard[i][4 - i] == 'x' for i in range(5))
-
-    return left_to_right or right_to_left  """ 
-    
-    
 #TP6 y TP7
 def show_list(list_numbers):  
     for i in list_numbers:
