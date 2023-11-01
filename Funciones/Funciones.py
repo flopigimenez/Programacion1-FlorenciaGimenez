@@ -182,6 +182,7 @@ def factorial(number):
         factorial *= n
         
     print(f"El factorial de {number} es {factorial}")
+    return factorial
          
        
 #Bingo
